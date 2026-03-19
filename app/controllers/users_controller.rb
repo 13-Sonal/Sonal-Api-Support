@@ -2,19 +2,16 @@ class UsersController < ApplicationController
 
 def create
   user = User.new(user_params)
-  binding.pry
   user.save!
   render json: user
 end
 
-def show 
-  binding.pry
+def show
   users = User.all
   render json: users
 end
 
 def index
-    binding.pry
   user = User.find_by(id: params[:id])
   # user.update(user_params)
   render json: user
@@ -28,7 +25,6 @@ end
 
 
 def edit
-  binding.pry
   user = User.find_by(id: params[:id])
   user.update(user_params)
   user.save
